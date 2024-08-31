@@ -1,40 +1,42 @@
-import React from 'react';
-import Fullpage, { FullPageSections, FullpageSection } from '@ap.cx/react-fullpage';
-import NaverMap from '../components/NaverMap';
+import React from "react";
+import Fullpage, {
+  FullPageSections,
+  FullpageSection,
+} from "@ap.cx/react-fullpage";
+import ASection from "../sections/ASection";
+import BSection from "../sections/BSection";
+import ESection from "../sections/ESection";
+import CSection from "../sections/CSection";
+import DSection from "../sections/DSection";
+import Footer from "../components/layout/Footer";
 
 const HomePage = () => {
   return (
     <Fullpage>
       <FullPageSections>
-        <FullpageSection style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
-            <video
-            autoPlay
-            loop
-            muted
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              zIndex: -1,
-            }}
-          >
-            <source src="/hompage.mp4" type="video/mp4" />
-          </video>
+        <FullpageSection
+          style={{ position: "relative", height: "100vh", overflow: "hidden" }}
+        >
+          <ASection />
         </FullpageSection>
-        <FullpageSection style={{ height: '100vh', backgroundColor: '#e0e0e0' }}>
-          <h1>Section 2</h1>
+        <FullpageSection style={{ height: "100vh" }}>
+          <BSection />
         </FullpageSection>
-        <FullpageSection style={{ height: '100vh', backgroundColor: '#d0d0d0' }}>
-          <h1>Section 3</h1>
+        <FullpageSection
+          style={{ height: "100vh", backgroundColor: "#03091C" }}
+        >
+          <CSection />
         </FullpageSection>
-        <FullpageSection style={{ height: '100vh', backgroundColor: '#c0c0c0' }}>
-          <h1>Section 4</h1>
-          <div>
-            <NaverMap />
-          </div>
+        {/* Uncomment if needed */}
+        {/* <FullpageSection
+          style={{ height: "100vh" }}
+        >
+          <DSection />
+        </FullpageSection> */}
+        <FullpageSection
+          style={{ height: "100vh" }}
+        >
+          <ESection />
         </FullpageSection>
       </FullPageSections>
     </Fullpage>

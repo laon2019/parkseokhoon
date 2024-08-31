@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,24 +18,23 @@ const Header = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <StyledHeader isScrolled={isScrolled}>
       <HeaderContent>
-        <Logo>박석훈 법률사무소</Logo>
+        <Logo isScrolled={isScrolled}>박석훈 법률사무소</Logo>
         <Divider />
-        <Nav isMenuOpen={isMenuOpen}>
-          <NavItem>소개</NavItem>
-          <NavItem>경력</NavItem>
-          <NavItem>업무분야</NavItem>
-          <NavItem>오시는 길</NavItem>
+        <Nav isScrolled={isScrolled} isMenuOpen={isMenuOpen}>
+          <NavItem isScrolled={isScrolled}>소개</NavItem>
+          <NavItem isScrolled={isScrolled}>업무분야</NavItem>
+          <NavItem isScrolled={isScrolled}>오시는 길</NavItem>
         </Nav>
-        <PhoneNumber>📞 010-3799-4321</PhoneNumber>
+        <PhoneNumber isScrolled={isScrolled}>📞 010-3799-4321</PhoneNumber>
       </HeaderContent>
     </StyledHeader>
   );
@@ -47,9 +46,13 @@ const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: ${({ isScrolled }) => (isScrolled ? 'white' : 'transparent')};
-  box-shadow: ${({ isScrolled }) => (isScrolled ? '0 2px 4px rgba(0, 0, 0, 0.1)' : 'none')};
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: ${({ isScrolled }) =>
+    isScrolled ? "white" : "transparent"};
+  box-shadow: ${({ isScrolled }) =>
+    isScrolled ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none"};
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
   z-index: 1000;
 `;
 
@@ -70,10 +73,11 @@ const HeaderContent = styled.div`
 const Logo = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
+  color: ${({ isScrolled }) => (isScrolled ? "black" : "white")};
 
   @media (max-width: 768px) {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 `;
 
@@ -81,7 +85,7 @@ const Divider = styled.div`
   width: 100%;
   height: 1px;
   background-color: #ccc;
-  margin: 10px 0;
+  margin: 5px 0;
 
   @media (min-width: 769px) {
     display: none;
@@ -95,15 +99,13 @@ const Nav = styled.nav`
   flex-wrap: wrap;
 
   @media (max-width: 768px) {
-    flex-direction: row;
-    justify-content: center;
-    padding-top: 10px;
+    display: none;
   }
 `;
 
 const NavItem = styled.a`
   text-decoration: none;
-  color: black;
+  color: ${({ isScrolled }) => (isScrolled ? "black" : "white")};
   font-weight: 500;
   cursor: pointer;
 
@@ -119,6 +121,7 @@ const PhoneNumber = styled.div`
   display: flex;
   align-items: center;
   font-size: 1rem;
+  color: ${({ isScrolled }) => (isScrolled ? "black" : "white")};
 
   @media (max-width: 768px) {
     display: none;

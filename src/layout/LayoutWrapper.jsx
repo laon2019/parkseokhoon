@@ -7,7 +7,7 @@ export default ({ children }) => {
     <>
       <Header />
       <div>{children}</div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
