@@ -16,7 +16,7 @@ const NaverMap = () => {
 
       // 마커 추가
       const marker = new window.naver.maps.Marker({
-        position: new window.naver.maps.LatLng(33.45606, 126.560046), // 제주 제주시 이도이동 남광북5길 10 J빌딩 4층 402호 위치
+        position: new window.naver.maps.LatLng(33.45606, 126.560046),
         map: map,
         title: "제주 제주시 이도이동 남광북5길 10 J빌딩 4층 402호",
       });
