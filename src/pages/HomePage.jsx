@@ -8,7 +8,6 @@ import BSection from "../sections/BSection";
 import ESection from "../sections/ESection";
 import CSection from "../sections/CSection";
 import DSection from "../sections/DSection";
-import Footer from "../components/layout/Footer";
 
 const HomePage = () => {
   return (
